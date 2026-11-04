@@ -13,18 +13,19 @@ module FacebookAds
   # on github and we'll fix in our codegen framework. We'll not be able to accept
   # pull request for this class.
 
-  class ProductGroupGet < AdObject
+  class BenchmarkAvailability < AdObject
 
-    field :id, 'int'
-    field :mini_shops_product_sets_count, 'int'
-    field :product_catalog, 'object'
-    field :products, 'object'
-    field :representative_item_id, 'string'
-    field :retailer_id, 'string'
-    field :variants, { list: 'object' }
+    field :id, 'string'
     has_no_get
     has_no_post
     has_no_delete
+
+    has_edge :insights&#x2F;benchmark-availability do |edge|
+      edge.get 'BenchmarkAvailabilityGet' do |api|
+        api.has_param :country, 'string'
+        api.has_param :entity, 'string'
+      end
+    end
 
   end
 end

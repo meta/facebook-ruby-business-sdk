@@ -15,6 +15,7 @@ module FacebookAds
 
   class ShadowIgUserThreadOwner < AdObject
 
+    field :thread_owner, 'object'
     has_no_id
     has_no_get
     has_no_post

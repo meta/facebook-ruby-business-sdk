@@ -46,6 +46,8 @@ module FacebookAds
         api.has_param :folder, 'string'
         api.has_param :platform, { enum: -> { UnifiedThread::PLATFORM }}
         api.has_param :tags, { list: 'string' }
+        api.has_param :updated_after_ms, 'int'
+        api.has_param :updated_before_ms, 'int'
         api.has_param :user_id, 'string'
       end
     end

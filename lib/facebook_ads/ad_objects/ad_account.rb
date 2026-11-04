@@ -429,6 +429,7 @@ module FacebookAds
         api.has_param :evaluation_spec, 'object'
         api.has_param :execution_spec, 'object'
         api.has_param :name, 'string'
+        api.has_param :recommended_rule_key, 'string'
         api.has_param :schedule_spec, 'object'
         api.has_param :status, { enum: -> { AdRule::STATUS }}
         api.has_param :ui_creation_source, { enum: -> { AdRule::UI_CREATION_SOURCE }}
@@ -516,7 +517,6 @@ module FacebookAds
         api.has_param :bid_constraints, 'hash'
         api.has_param :bid_strategy, { enum: %w{COST_CAP LOWEST_COST_WITHOUT_CAP LOWEST_COST_WITH_BID_CAP LOWEST_COST_WITH_MIN_ROAS }}
         api.has_param :billing_event, { enum: %w{APP_INSTALLS CLICKS IMPRESSIONS LINK_CLICKS LISTING_INTERACTION NONE OFFER_CLAIMS PAGE_LIKES POST_ENGAGEMENT PURCHASE THRUPLAY }}
-        api.has_param :brand_safety_config, 'hash'
         api.has_param :budget_schedule_specs, { list: 'object' }
         api.has_param :budget_source, { enum: %w{NONE RMN }}
         api.has_param :budget_split_set_id, 'string'
@@ -563,7 +563,7 @@ module FacebookAds
         api.has_param :placement_soft_opt_out, 'object'
         api.has_param :promoted_object, 'object'
         api.has_param :rb_prediction_id, 'string'
-        api.has_param :regional_regulated_categories, { list: { enum: %w{0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 24 25 }} }
+        api.has_param :regional_regulated_categories, { list: { enum: %w{0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 24 25 26 27 }} }
         api.has_param :regional_regulation_identities, 'hash'
         api.has_param :relative_value, 'double'
         api.has_param :rf_prediction_id, 'string'
@@ -821,6 +821,7 @@ module FacebookAds
         api.has_param :is_direct_send_campaign, 'bool'
         api.has_param :is_message_campaign, 'bool'
         api.has_param :is_meta_moment_maker_enabled, 'bool'
+        api.has_param :is_pca_unified, 'bool'
         api.has_param :is_reels_trending_ads_enabled, 'bool'
         api.has_param :is_skadnetwork_attribution, 'bool'
         api.has_param :iterative_split_test_configs, { list: 'object' }
@@ -987,6 +988,7 @@ module FacebookAds
         api.has_param :action_breakdowns, { list: { enum: -> { AdsInsights::ACTION_BREAKDOWNS }} }
         api.has_param :action_report_time, { enum: -> { AdsInsights::ACTION_REPORT_TIME }}
         api.has_param :breakdowns, { list: { enum: -> { AdsInsights::BREAKDOWNS }} }
+        api.has_param :cpas_only, 'string'
         api.has_param :date_preset, { enum: -> { AdsInsights::DATE_PRESET }}
         api.has_param :default_summary, 'bool'
         api.has_param :export_columns, { list: 'string' }
@@ -1012,6 +1014,7 @@ module FacebookAds
         api.has_param :action_breakdowns, { list: { enum: -> { AdsInsights::ACTION_BREAKDOWNS }} }
         api.has_param :action_report_time, { enum: -> { AdsInsights::ACTION_REPORT_TIME }}
         api.has_param :breakdowns, { list: { enum: -> { AdsInsights::BREAKDOWNS }} }
+        api.has_param :cpas_only, 'string'
         api.has_param :date_preset, { enum: -> { AdsInsights::DATE_PRESET }}
         api.has_param :default_summary, 'bool'
         api.has_param :export_columns, { list: 'string' }
@@ -1343,6 +1346,7 @@ module FacebookAds
       edge.post 'AdsValueAdjustmentRuleCollection' do |api|
         api.has_param :entry_point, { enum: -> { AdsValueAdjustmentRuleCollection::ENTRY_POINT }}
         api.has_param :name, 'string'
+        api.has_param :origin, { enum: -> { AdsValueAdjustmentRuleCollection::ORIGIN }}
         api.has_param :product_type, { enum: -> { AdsValueAdjustmentRuleCollection::PRODUCT_TYPE }}
         api.has_param :rules, { list: 'hash' }
       end

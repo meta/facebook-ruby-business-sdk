@@ -126,11 +126,9 @@ module FacebookAds
     PERMITTED_TASKS = [
       "ADVERTISE",
       "ANALYZE",
-      "CASHIER_ROLE",
       "CREATE_CONTENT",
       "GLOBAL_STRUCTURE_MANAGEMENT",
       "MANAGE",
-      "MANAGE_JOBS",
       "MANAGE_LEADS",
       "MESSAGING",
       "MODERATE",
@@ -158,11 +156,9 @@ module FacebookAds
     TASKS = [
       "ADVERTISE",
       "ANALYZE",
-      "CASHIER_ROLE",
       "CREATE_CONTENT",
       "GLOBAL_STRUCTURE_MANAGEMENT",
       "MANAGE",
-      "MANAGE_JOBS",
       "MANAGE_LEADS",
       "MESSAGING",
       "MODERATE",
@@ -185,54 +181,6 @@ module FacebookAds
       "PROFILE_PLUS_REVENUE",
       "READ_PAGE_MAILBOXES",
       "VIEW_MONETIZATION_INSIGHTS",
-    ]
-
-    BACKDATED_TIME_GRANULARITY = [
-      "day",
-      "hour",
-      "min",
-      "month",
-      "none",
-      "year",
-    ]
-
-    FORMATTING = [
-      "MARKDOWN",
-      "PLAINTEXT",
-    ]
-
-    PLACE_ATTACHMENT_SETTING = [
-      "1",
-      "2",
-    ]
-
-    POST_SURFACES_BLACKLIST = [
-      "1",
-      "2",
-      "3",
-      "4",
-      "5",
-    ]
-
-    POSTING_TO_REDSPACE = [
-      "disabled",
-      "enabled",
-    ]
-
-    TARGET_SURFACE = [
-      "STORY",
-      "TIMELINE",
-    ]
-
-    UNPUBLISHED_CONTENT_TYPE = [
-      "ADS_POST",
-      "DRAFT",
-      "INLINE_CREATED",
-      "PUBLISHED",
-      "PUBLISH_PENDING",
-      "REVIEWABLE_BRANDED_CONTENT",
-      "SCHEDULED",
-      "SCHEDULED_RECURRING",
     ]
 
     RECOMMENDATION_ACTION = [
@@ -285,14 +233,6 @@ module FacebookAds
     PLATFORM = [
       "INSTAGRAM",
       "MESSENGER",
-    ]
-
-    ACTIONS = [
-      "BAN_USER",
-      "BLOCK_USER",
-      "MOVE_TO_SPAM",
-      "UNBAN_USER",
-      "UNBLOCK_USER",
     ]
 
     MODEL = [
@@ -671,7 +611,7 @@ module FacebookAds
     end
 
     has_edge :business_messaging_feature_status do |edge|
-      edge.post 'Page' do |api|
+      edge.post do |api|
         api.has_param :features, { list: 'hash' }
       end
     end
@@ -787,6 +727,8 @@ module FacebookAds
         api.has_param :folder, 'string'
         api.has_param :platform, { enum: -> { UnifiedThread::PLATFORM }}
         api.has_param :tags, { list: 'string' }
+        api.has_param :updated_after_ms, 'int'
+        api.has_param :updated_before_ms, 'int'
         api.has_param :user_id, 'string'
       end
     end
@@ -867,7 +809,7 @@ module FacebookAds
         api.has_param :show_expired, 'bool'
         api.has_param :with, { enum: -> { PagePost::WITH }}
       end
-      edge.post 'Page' do |api|
+      edge.post do |api|
         api.has_param :actions, 'object'
         api.has_param :album_id, 'string'
         api.has_param :android_key_hash, 'string'
@@ -879,7 +821,7 @@ module FacebookAds
         api.has_param :attached_media, { list: 'object' }
         api.has_param :audience_exp, 'bool'
         api.has_param :backdated_time, 'datetime'
-        api.has_param :backdated_time_granularity, { enum: -> { Page::BACKDATED_TIME_GRANULARITY }}
+        api.has_param :backdated_time_granularity, { enum: %w{day hour min month none year }}
         api.has_param :breaking_news, 'bool'
         api.has_param :breaking_news_expiration, 'int'
         api.has_param :call_to_action, 'object'
@@ -904,7 +846,7 @@ module FacebookAds
         api.has_param :expanded_height, 'int'
         api.has_param :expanded_width, 'int'
         api.has_param :feed_targeting, 'object'
-        api.has_param :formatting, { enum: -> { Page::FORMATTING }}
+        api.has_param :formatting, { enum: %w{MARKDOWN PLAINTEXT }}
         api.has_param :fun_fact_prompt_id, 'string'
         api.has_param :fun_fact_toastee_id, 'int'
         api.has_param :height, 'int'
@@ -938,11 +880,11 @@ module FacebookAds
         api.has_param :page_recommendation, 'string'
         api.has_param :picture, 'string'
         api.has_param :place, 'object'
-        api.has_param :place_attachment_setting, { enum: -> { Page::PLACE_ATTACHMENT_SETTING }}
+        api.has_param :place_attachment_setting, { enum: %w{1 2 }}
         api.has_param :place_list, 'string'
         api.has_param :place_list_data, { list: 'string' }
-        api.has_param :post_surfaces_blacklist, { list: { enum: -> { Page::POST_SURFACES_BLACKLIST }} }
-        api.has_param :posting_to_redspace, { enum: -> { Page::POSTING_TO_REDSPACE }}
+        api.has_param :post_surfaces_blacklist, { list: { enum: %w{1 2 3 4 5 }} }
+        api.has_param :posting_to_redspace, { enum: %w{disabled enabled }}
         api.has_param :privacy, 'string'
         api.has_param :prompt_id, 'string'
         api.has_param :prompt_tracking_string, 'string'
@@ -960,7 +902,7 @@ module FacebookAds
         api.has_param :sponsor_relationship, 'int'
         api.has_param :suggested_place_id, 'object'
         api.has_param :tags, { list: 'int' }
-        api.has_param :target_surface, { enum: -> { Page::TARGET_SURFACE }}
+        api.has_param :target_surface, { enum: %w{STORY TIMELINE }}
         api.has_param :targeting, 'object'
         api.has_param :text_format_metadata, 'string'
         api.has_param :text_format_preset_id, 'string'
@@ -969,7 +911,7 @@ module FacebookAds
         api.has_param :time_since_original_post, 'int'
         api.has_param :title, 'string'
         api.has_param :tracking_info, 'string'
-        api.has_param :unpublished_content_type, { enum: -> { Page::UNPUBLISHED_CONTENT_TYPE }}
+        api.has_param :unpublished_content_type, { enum: %w{ADS_POST DRAFT INLINE_CREATED PUBLISHED PUBLISH_PENDING REVIEWABLE_BRANDED_CONTENT SCHEDULED SCHEDULED_RECURRING }}
         api.has_param :user_selected_tags, 'bool'
         api.has_param :video_start_time_ms, 'int'
         api.has_param :viewer_coordinates, 'object'
@@ -1188,7 +1130,7 @@ module FacebookAds
 
     has_edge :messenger_call_settings do |edge|
       edge.get 'MessengerCallSettings'
-      edge.post 'Page' do |api|
+      edge.post 'MessengerCallSettings' do |api|
         api.has_param :audio_enabled, 'bool'
         api.has_param :call_hours, 'hash'
         api.has_param :call_routing, 'hash'
@@ -1235,8 +1177,8 @@ module FacebookAds
     end
 
     has_edge :moderate_conversations do |edge|
-      edge.post 'Page' do |api|
-        api.has_param :actions, { list: { enum: -> { Page::ACTIONS }} }
+      edge.post do |api|
+        api.has_param :actions, { list: { enum: %w{BAN_USER BLOCK_USER MOVE_TO_SPAM UNBAN_USER UNBLOCK_USER }} }
         api.has_param :user_ids, { list: 'hash' }
       end
     end
@@ -1257,7 +1199,7 @@ module FacebookAds
       edge.get 'UserPageOneTimeOptInTokenSettings' do |api|
         api.has_param :custom_audience_ids, { list: 'string' }
         api.has_param :do_not_return_duplicates, 'bool'
-        api.has_param :has_received_marketing_message, 'bool'
+        api.has_param :is_previously_messaged, 'bool'
         api.has_param :opt_in_source, { list: { enum: -> { UserPageOneTimeOptInTokenSettings::OPT_IN_SOURCE }} }
         api.has_param :since, 'datetime'
         api.has_param :subscriber_tag_ids, { list: 'string' }
@@ -1289,7 +1231,7 @@ module FacebookAds
     end
 
     has_edge :pass_thread_control do |edge|
-      edge.post 'Page' do |api|
+      edge.post do |api|
         api.has_param :metadata, 'string'
         api.has_param :recipient, 'object'
         api.has_param :target_app_id, 'string'
@@ -1356,8 +1298,6 @@ module FacebookAds
         api.has_param :place, 'object'
         api.has_param :privacy, 'string'
         api.has_param :profile_id, 'int'
-        api.has_param :provenance_info, 'hash'
-        api.has_param :provenance_metadata, 'hash'
         api.has_param :proxied_app_id, 'string'
         api.has_param :published, 'bool'
         api.has_param :qn, 'string'
@@ -1443,7 +1383,7 @@ module FacebookAds
     end
 
     has_edge :release_thread_control do |edge|
-      edge.post 'Page' do |api|
+      edge.post do |api|
         api.has_param :recipient, 'object'
       end
     end
@@ -1546,6 +1486,8 @@ module FacebookAds
         api.has_param :folder, 'string'
         api.has_param :platform, { enum: -> { UnifiedThread::PLATFORM }}
         api.has_param :tags, { list: 'string' }
+        api.has_param :updated_after_ms, 'int'
+        api.has_param :updated_before_ms, 'int'
         api.has_param :user_id, 'string'
       end
     end

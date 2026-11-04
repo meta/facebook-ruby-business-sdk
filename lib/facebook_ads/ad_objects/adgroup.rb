@@ -21,7 +21,14 @@ module FacebookAds
     has_no_delete
 
     has_edge : do |edge|
-      edge.delete 'AdgroupDelete'
+      edge.get 'AdgroupGet' do |api|
+        api.has_param :am_call_tags, 'hash'
+        api.has_param :date_preset, { enum: -> { AdgroupGet::DATE_PRESET }}
+        api.has_param :fields, 'string'
+        api.has_param :from_adtable, 'bool'
+        api.has_param :review_feedback_breakdown, 'bool'
+        api.has_param :time_range, 'hash'
+      end
     end
 
   end

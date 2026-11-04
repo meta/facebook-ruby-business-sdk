@@ -218,6 +218,8 @@ module FacebookAds
       "22",
       "24",
       "25",
+      "26",
+      "27",
     ]
 
     TUNE_FOR_CATEGORY = [
@@ -422,6 +424,7 @@ module FacebookAds
         api.has_param :action_breakdowns, { list: { enum: -> { AdsInsights::ACTION_BREAKDOWNS }} }
         api.has_param :action_report_time, { enum: -> { AdsInsights::ACTION_REPORT_TIME }}
         api.has_param :breakdowns, { list: { enum: -> { AdsInsights::BREAKDOWNS }} }
+        api.has_param :cpas_only, 'string'
         api.has_param :date_preset, { enum: -> { AdsInsights::DATE_PRESET }}
         api.has_param :default_summary, 'bool'
         api.has_param :export_columns, { list: 'string' }
@@ -447,6 +450,7 @@ module FacebookAds
         api.has_param :action_breakdowns, { list: { enum: -> { AdsInsights::ACTION_BREAKDOWNS }} }
         api.has_param :action_report_time, { enum: -> { AdsInsights::ACTION_REPORT_TIME }}
         api.has_param :breakdowns, { list: { enum: -> { AdsInsights::BREAKDOWNS }} }
+        api.has_param :cpas_only, 'string'
         api.has_param :date_preset, { enum: -> { AdsInsights::DATE_PRESET }}
         api.has_param :default_summary, 'bool'
         api.has_param :export_columns, { list: 'string' }

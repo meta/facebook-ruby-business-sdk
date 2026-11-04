@@ -49,7 +49,9 @@ module FacebookAds
       "RULES_MANAGEMENT_PAGE_RULE_GROUP",
       "RULES_MANAGEMENT_PAGE_RULE_NAME",
       "RULES_MANAGEMENT_PAGE_TOP_NAV",
+      "RULES_RECOMMENDED_RULES_CARD",
       "RULES_RECOMMENDED_RULES_DIALOG",
+      "RULES_RECOMMENDED_RULES_DIALOG_CUSTOM_RULE",
       "RULES_VIEW_ACTIVE_RULES_DIALOG",
       "RULE_CREATION_SUCCESS_DIALOG",
       "RULE_SYD_REDIRECT",
@@ -68,6 +70,7 @@ module FacebookAds
     field :schedule_spec, 'AdRuleScheduleSpec'
     field :status, 'string'
     field :updated_time, 'datetime'
+    field :recommended_rule_key, 'string'
     field :ui_creation_source, { enum: -> { UI_CREATION_SOURCE }}
 
     has_edge :execute do |edge|

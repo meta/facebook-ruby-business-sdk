@@ -32,6 +32,7 @@ module FacebookAds
     field :site_links_data_consented, 'object'
     field :site_links_spec, { list: 'AdCreativeSiteLinksSpec' }
     field :source_url, 'string'
+    field :ugc_spec, 'object'
     field :website_media_spec, 'object'
     field :website_summary_spec, 'object'
     has_no_id

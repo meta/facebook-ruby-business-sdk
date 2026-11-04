@@ -44,6 +44,7 @@ module FacebookAds
     field :is_shared_to_feed, 'bool'
     field :legacy_instagram_media_id, 'string'
     field :like_count, 'int'
+    field :live_reactions, 'IgLiveMediaReactions'
     field :live_status, 'string'
     field :media_audio_type, 'string'
     field :media_product_type, 'string'

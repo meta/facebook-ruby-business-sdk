@@ -95,6 +95,7 @@ module FacebookAds
 
     FEATURES = [
       "AGENTIC_CHECKOUT",
+      "AGENTIC_CHECKOUT_PRE_CLICK",
       "AMAZON_BUY_WITH_PRIME",
       "AUGMENTED_REALITY",
       "CHECKOUT",

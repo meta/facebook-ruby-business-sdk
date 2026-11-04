@@ -13,15 +13,21 @@ module FacebookAds
   # on github and we'll fix in our codegen framework. We'll not be able to accept
   # pull request for this class.
 
-  class AdAccountAdsGet < AdObject
+  class ProductFeedRulePreviewSamples < AdObject
 
-    field :data, { list: 'object' }
-    field :paging, 'object'
-    field :summary, 'object'
-    has_no_id
+    field :id, 'string'
     has_no_get
     has_no_post
     has_no_delete
+
+    has_edge :rule_preview_samples do |edge|
+      edge.get 'ProductFeedRulePreviewSamplesGet' do |api|
+        api.has_param :attribute, 'string'
+        api.has_param :fields, 'string'
+        api.has_param :params, 'string'
+        api.has_param :rule_type, 'string'
+      end
+    end
 
   end
 end

@@ -23,12 +23,14 @@ module FacebookAds
       "EXTERNAL",
       "INTERNAL",
       "SELF_SERVE",
+      "SELF_SERVE_ADS_MANAGER",
       "SELF_SERVE_CONTACT_FORM",
     ]
 
 
     field :ad_account_id, 'string'
     field :ad_account_name, 'string'
+    field :archived_time, 'datetime'
     field :brands, { list: 'string' }
     field :catalog_segment, 'ProductCatalog'
     field :collaborative_ads_share_settings, 'CollaborativeAdsShareSettings'

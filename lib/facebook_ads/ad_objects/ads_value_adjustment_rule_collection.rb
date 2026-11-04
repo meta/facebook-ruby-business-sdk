@@ -23,6 +23,14 @@ module FacebookAds
       "L2_PLACEMENT",
     ]
 
+    ORIGIN = [
+      "ADVANTAGE_AUDIENCE_GUIDANCE_SUGGESTED",
+      "ADVERTISER_CREATED",
+      "PLACEMENT_GUIDANCE_SUGGESTED",
+      "PLACEMENT_PERSONALIZED_SUGGESTED",
+      "TRANSLATED_FROM_BID_MULTIPLIERS",
+    ]
+
     PRODUCT_TYPE = [
       "AUDIENCE",
       "LEADGEN_ADS",
@@ -43,10 +51,11 @@ module FacebookAds
     field :product_type, 'string'
     field :status, 'string'
     field :entry_point, { enum: -> { ENTRY_POINT }}
+    field :origin, { enum: -> { ORIGIN }}
     field :rules, { list: 'hash' }
     has_no_delete
 
-    has_edge :delete_rule_set do |edge|
+    has_edge :deleteruleset do |edge|
       edge.post 'AdsValueAdjustmentRuleCollection' do |api|
         api.has_param :status, { enum: -> { AdsValueAdjustmentRuleCollection::STATUS }}
       end

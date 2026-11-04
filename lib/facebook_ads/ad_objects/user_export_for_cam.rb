@@ -13,7 +13,7 @@ module FacebookAds
   # on github and we'll fix in our codegen framework. We'll not be able to accept
   # pull request for this class.
 
-  class IgUserExportForCam < AdObject
+  class UserExportForCam < AdObject
     CREATOR_COUNTRIES = [
       "AC",
       "AD",
@@ -274,6 +274,33 @@ module FacebookAds
       "female",
       "male",
       "unknown",
+    ]
+
+    CREATOR_LANGUAGE = [
+      "ar",
+      "as",
+      "bn",
+      "de",
+      "en",
+      "es",
+      "fr",
+      "gu",
+      "hi",
+      "id",
+      "ja",
+      "kn",
+      "ko",
+      "ml",
+      "mr",
+      "nl",
+      "or",
+      "pa",
+      "pt",
+      "ta",
+      "te",
+      "tr",
+      "ur",
+      "zh",
     ]
 
     MAJOR_AUDIENCE_COUNTRIES = [
@@ -561,6 +588,7 @@ module FacebookAds
     field :category, 'string'
     field :country, 'string'
     field :email, 'string'
+    field :facebook_messaging_id, 'string'
     field :gender, 'string'
     field :has_brand_partnership_experience, 'bool'
     field :id, 'string'

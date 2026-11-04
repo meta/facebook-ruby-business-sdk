@@ -72,11 +72,9 @@ module FacebookAds
     PERMITTED_TASKS = [
       "ADVERTISE",
       "ANALYZE",
-      "CASHIER_ROLE",
       "CREATE_CONTENT",
       "GLOBAL_STRUCTURE_MANAGEMENT",
       "MANAGE",
-      "MANAGE_JOBS",
       "MANAGE_LEADS",
       "MESSAGING",
       "MODERATE",
@@ -707,11 +705,9 @@ module FacebookAds
     PAGE_PERMITTED_TASKS = [
       "ADVERTISE",
       "ANALYZE",
-      "CASHIER_ROLE",
       "CREATE_CONTENT",
       "GLOBAL_STRUCTURE_MANAGEMENT",
       "MANAGE",
-      "MANAGE_JOBS",
       "MANAGE_LEADS",
       "MESSAGING",
       "MODERATE",
@@ -1371,10 +1367,6 @@ module FacebookAds
         api.has_param :retailer_custom_audience_config, 'hash'
         api.has_param :vendor_id, 'string'
       end
-    end
-
-    has_edge :passback_attribution_metadata_configs do |edge|
-      edge.get
     end
 
     has_edge :pending_client_ad_accounts do |edge|

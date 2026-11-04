@@ -330,6 +330,7 @@ module FacebookAds
       "BIZ_MSG_GEN_AI_POLICY_VIOLATED",
       "CANNOT_EDIT_SUBSCRIPTION_PRODUCTS",
       "CATALOG_NOT_CONNECTED_TO_EVENT_SOURCE",
+      "CATALOG_NOT_ONBOARDED_FOR_AI_COMMERCE",
       "CHECKOUT_DISABLED_BY_USER",
       "COMMERCE_ACCOUNT_LEGAL_ADDRESS_INVALID",
       "COMMERCE_ACCOUNT_NOT_LEGALLY_COMPLIANT",
@@ -395,12 +396,16 @@ module FacebookAds
       "INVENTORY_ZERO_AVAILABILITY_IN_STOCK",
       "IN_ANOTHER_PRODUCT_LAUNCH",
       "ITEM_GROUP_NOT_SPECIFIED",
+      "ITEM_INVALID_FEATURE",
+      "ITEM_NOT_APPROVED",
+      "ITEM_NOT_NATIVE_COMMERCE",
       "ITEM_NOT_SHIPPABLE_FOR_SCA_SHOP",
       "ITEM_OVERRIDE_EMPTY_AVAILABILITY",
       "ITEM_OVERRIDE_EMPTY_PRICE",
       "ITEM_OVERRIDE_NOT_VISIBLE",
       "ITEM_PRICE_NOT_POSITIVE",
       "ITEM_STALE_OUT_OF_STOCK",
+      "ITEM_SUPPRESSED_CHECKOUT_ERROR",
       "ITEM_WITHOUT_VIDEO",
       "MARKETPLACE_DISABLED_BY_USER",
       "MARKETPLACE_NOT_SHIPPED_ITEM",
@@ -443,6 +448,7 @@ module FacebookAds
       "PRODUCT_EXPIRED",
       "PRODUCT_ITEM_HIDDEN_FROM_ALL_SHOPS",
       "PRODUCT_ITEM_INVALID_PARTNER_TOKENS",
+      "PRODUCT_ITEM_MISSING_LOCATION_INFORMATION",
       "PRODUCT_ITEM_NOT_INCLUDED_IN_ANY_SHOP",
       "PRODUCT_ITEM_NOT_VISIBLE",
       "PRODUCT_NOT_APPROVED",
@@ -481,6 +487,7 @@ module FacebookAds
       "UNMATCHED_EVENTS",
       "UNSUPPORTED_PRODUCT_CATEGORY",
       "VARIANT_ATTRIBUTE_ISSUE",
+      "VERSION_OVERRIDE_NOT_EXISTS",
       "VIDEO_FETCH_FAILED",
       "VIDEO_FETCH_FAILED_BAD_GATEWAY",
       "VIDEO_FETCH_FAILED_FILE_SIZE_EXCEEDED",
@@ -861,6 +868,9 @@ module FacebookAds
     field :visibility, { enum: -> { VISIBILITY }}
     field :wa_compliance_category, 'string'
     field :allow_upsert, 'bool'
+    field :fbe_external_business_id, 'string'
+    field :requests, { list: 'hash' }
+    field :version, 'int'
     field :android_app_name, 'string'
     field :android_class, 'string'
     field :android_package, 'string'

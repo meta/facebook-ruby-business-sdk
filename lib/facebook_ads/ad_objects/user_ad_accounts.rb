@@ -24,11 +24,13 @@ module FacebookAds
       edge.get 'UserAdAccountsGet' do |api|
         api.has_param :after, 'string'
         api.has_param :before, 'string'
+        api.has_param :date_format, 'string'
         api.has_param :fields, 'string'
         api.has_param :filtering, 'string'
         api.has_param :limit, 'int'
         api.has_param :sort, 'string'
         api.has_param :summary, 'string'
+        api.has_param :timezone, 'string'
       end
     end
 

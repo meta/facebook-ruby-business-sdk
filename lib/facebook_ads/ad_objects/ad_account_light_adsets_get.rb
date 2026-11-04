@@ -16,8 +16,10 @@ module FacebookAds
   class AdAccountLightAdsetsGet < AdObject
     DATE_PRESET = [
       "DATA_MAXIMUM",
+      "LAST_12M",
       "LAST_14D",
       "LAST_14_DAYS",
+      "LAST_180D",
       "LAST_180_DAYS",
       "LAST_24M",
       "LAST_28D",
@@ -30,6 +32,7 @@ module FacebookAds
       "LAST_3_DAYS",
       "LAST_3_MONTHS",
       "LAST_40D",
+      "LAST_60D",
       "LAST_7D",
       "LAST_7_DAYS",
       "LAST_8_DAYS",

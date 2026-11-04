@@ -75,6 +75,12 @@ module FacebookAds
       "POSITIONAL",
     ]
 
+    ROUTING_ENTRYPOINT = [
+      "MARKETING_ENTRYPOINT",
+      "SERVICE_ENTRYPOINT",
+      "UTILITY_ENTRYPOINT",
+    ]
+
     SEND_TYPE = [
       "CAMPAIGN",
       "DIRECT",
@@ -121,6 +127,7 @@ module FacebookAds
     field :primary_business_location, 'string'
     field :primary_funding_id, 'string'
     field :purchase_order_number, 'string'
+    field :service_pricing_policy, 'string'
     field :status, 'string'
     field :template_auto_archival_enabled, 'bool'
     field :timezone_id, 'string'
@@ -284,6 +291,7 @@ module FacebookAds
         api.has_param :optimization_spec, 'hash'
         api.has_param :parameter_format, { enum: -> { WhatsAppBusinessAccount::PARAMETER_FORMAT }}
         api.has_param :product_set_id, 'string'
+        api.has_param :routing_entrypoint, { enum: -> { WhatsAppBusinessAccount::ROUTING_ENTRYPOINT }}
         api.has_param :send_type, { enum: -> { WhatsAppBusinessAccount::SEND_TYPE }}
         api.has_param :source_template_id, 'int'
         api.has_param :sub_category, { enum: -> { WhatsAppBusinessAccount::SUB_CATEGORY }}

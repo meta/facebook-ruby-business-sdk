@@ -17,6 +17,7 @@ module FacebookAds
 
     field :is_all_trending, 'bool'
     field :is_special_budget_alloc, 'bool'
+    field :program_id, 'string'
     field :trending_topics, { list: 'string' }
     has_no_id
     has_no_get

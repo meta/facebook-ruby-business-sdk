@@ -132,6 +132,7 @@ module FacebookAds
     field :schedule, 'ProductFeedSchedule'
     field :supplementary_feeds, { list: 'string' }
     field :update_schedule, 'ProductFeedSchedule'
+    field :configuration_source_name, 'string'
     field :feed_type, { enum: -> { FEED_TYPE }}
     field :override_value, 'string'
     field :primary_feed_ids, { list: 'string' }

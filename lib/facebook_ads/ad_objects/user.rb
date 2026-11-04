@@ -24,6 +24,11 @@ module FacebookAds
       "STATUS_ON",
     ]
 
+    AI_DISCLOSURE = [
+      "AI_GENERATED",
+      "NOT_AI_GENERATED",
+    ]
+
     FILTERING = [
       "ema",
       "groups",
@@ -177,6 +182,10 @@ module FacebookAds
       end
     end
 
+    has_edge :assigned_instagram_accounts do |edge|
+      edge.get 'IgUser'
+    end
+
     has_edge :assigned_pages do |edge|
       edge.get 'Page' do |api|
         api.has_param :pages, { list: 'int' }
@@ -219,6 +228,8 @@ module FacebookAds
         api.has_param :folder, 'string'
         api.has_param :platform, { enum: -> { UnifiedThread::PLATFORM }}
         api.has_param :tags, { list: 'string' }
+        api.has_param :updated_after_ms, 'int'
+        api.has_param :updated_before_ms, 'int'
         api.has_param :user_id, 'string'
       end
     end
@@ -456,7 +467,9 @@ module FacebookAds
 
     has_edge :notifications do |edge|
       edge.post 'User' do |api|
+        api.has_param :ai_disclosure, { enum: -> { User::AI_DISCLOSURE }}
         api.has_param :bot_message_payload_elements, 'string'
+        api.has_param :button_title, 'string'
         api.has_param :filtering, { list: { enum: -> { User::FILTERING }} }
         api.has_param :game_metadata, 'string'
         api.has_param :href, 'object'
@@ -464,6 +477,7 @@ module FacebookAds
         api.has_param :message, 'hash'
         api.has_param :notif_ids, { list: 'string' }
         api.has_param :notification_content_id, 'int'
+        api.has_param :notification_contents, { list: 'hash' }
         api.has_param :payload, 'string'
         api.has_param :read, 'bool'
         api.has_param :ref, 'string'
@@ -533,8 +547,6 @@ module FacebookAds
         api.has_param :place, 'object'
         api.has_param :privacy, 'string'
         api.has_param :profile_id, 'int'
-        api.has_param :provenance_info, 'hash'
-        api.has_param :provenance_metadata, 'hash'
         api.has_param :proxied_app_id, 'string'
         api.has_param :published, 'bool'
         api.has_param :qn, 'string'

@@ -39,6 +39,7 @@ module FacebookAds
     field :action_breakdowns, { list: 'adaccountinsights_action_breakdowns_enum_param' }
     field :action_report_time, 'adaccountinsights_action_report_time_enum_param'
     field :breakdowns, { list: 'adaccountinsights_breakdowns_enum_param' }
+    field :cpas_only, 'string'
     field :date_preset, 'adaccountinsights_date_preset_enum_param'
     field :default_summary, 'bool'
     field :export_columns, { list: 'string' }

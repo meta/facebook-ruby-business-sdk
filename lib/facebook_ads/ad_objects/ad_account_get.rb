@@ -537,7 +537,7 @@ module FacebookAds
     field :is_youth_ads_pao_basic_advertiser, 'bool'
     field :is_youth_ads_pao_basic_advertiser_announcement_eligible, 'bool'
     field :last_spend_time, 'int'
-    field :last_used_time, 'int'
+    field :last_used_time, 'mixed'
     field :liable_address, 'object'
     field :liable_addresses, 'object'
     field :liable_to_org, 'object'
@@ -588,6 +588,7 @@ module FacebookAds
     field :segment, { enum: -> { SEGMENT }}
     field :send_bill_to_address, 'object'
     field :send_bill_to_addresses, 'object'
+    field :show_checkout_experience, 'bool'
     field :show_improved_boleto, 'bool'
     field :show_sac_campaign_group_input, 'bool'
     field :site_links_live_crawl, { list: 'object' }

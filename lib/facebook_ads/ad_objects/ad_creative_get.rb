@@ -56,6 +56,7 @@ module FacebookAds
       "BOOK_TRAVEL",
       "BROWSE_SHOP",
       "BUY",
+      "BUY_ACTIVITY_TICKETS",
       "BUY_NOW",
       "BUY_TICKETS",
       "BUY_VIA_MESSAGE",
@@ -165,6 +166,7 @@ module FacebookAds
       "SOTTO_SUBSCRIBE",
       "START_A_CHAT",
       "START_ORDER",
+      "STREAM_NOW",
       "SUBSCRIBE",
       "SWIPE_UP_PRODUCT",
       "SWIPE_UP_SHOP",
@@ -195,6 +197,7 @@ module FacebookAds
       "WATCH_LIVE_VIDEO",
       "WATCH_MORE",
       "WATCH_MUSIC_VIDEO",
+      "WATCH_NOW",
       "WATCH_VIDEO",
       "WHATSAPP_LINK",
       "WHATSAPP_MESSAGE",
@@ -270,6 +273,7 @@ module FacebookAds
     field :categorization_criteria, { enum: -> { CATEGORIZATION_CRITERIA }}
     field :category_media_source, { enum: -> { CATEGORY_MEDIA_SOURCE }}
     field :contextual_multi_ads, 'object'
+    field :creative_readiness, 'object'
     field :creative_sourcing_spec, 'object'
     field :degrees_of_freedom_spec, 'object'
     field :destination_spec, 'object'

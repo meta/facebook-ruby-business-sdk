@@ -87,6 +87,7 @@ module FacebookAds
       "country",
       "creative_automation_asset_id",
       "creative_fingerprint_details",
+      "creative_format_classification",
       "creative_media_type_breakdown",
       "creative_relaxation_asset_type",
       "crm_advertiser_l12_territory_ids",
@@ -123,6 +124,7 @@ module FacebookAds
       "media_creator",
       "media_destination_url",
       "media_format",
+      "media_id",
       "media_origin_url",
       "media_text_content",
       "media_type",
@@ -150,6 +152,7 @@ module FacebookAds
       "rta_ugc_topic",
       "rule_set_id",
       "rule_set_name",
+      "signal_source",
       "signal_source_bucket",
       "skan_campaign_id",
       "skan_conversion_id",
@@ -235,6 +238,7 @@ module FacebookAds
     field :advanced_reach_28d_lookback, 'string'
     field :advanced_reach_7d_lookback, 'string'
     field :age_targeting, 'string'
+    field :aggregated_play_time_per_reach, { list: 'AdsActionStats' }
     field :anchor_event_attribution_setting, 'string'
     field :anchor_events_performance_indicator, 'string'
     field :attribution_setting, 'string'
@@ -261,6 +265,12 @@ module FacebookAds
     field :configurable_audience_overlap_with_conv_exposure_cost, 'string'
     field :configurable_audience_overlap_with_conv_exposure_impressions, 'string'
     field :configurable_audience_overlap_with_conv_exposure_reach, 'string'
+    field :configurable_creative_format_performance_adset_count, 'string'
+    field :configurable_creative_format_performance_clicks, 'string'
+    field :configurable_creative_format_performance_conversions, 'string'
+    field :configurable_creative_format_performance_converters, 'string'
+    field :configurable_creative_format_performance_impressions, 'string'
+    field :configurable_creative_format_performance_spend, 'string'
     field :configurable_placement_ptc_conversions, 'string'
     field :configurable_placement_ptc_converters, 'string'
     field :configurable_placement_ptc_reach, 'string'
@@ -306,6 +316,7 @@ module FacebookAds
     field :cost_per_inline_link_click, 'string'
     field :cost_per_inline_post_engagement, 'string'
     field :cost_per_message_delivered, 'string'
+    field :cost_per_mmp_credited_install, { list: 'AdsActionStats' }
     field :cost_per_objective_result, { list: 'object' }
     field :cost_per_one_thousand_ad_impression, { list: 'AdsActionStats' }
     field :cost_per_outbound_click, { list: 'AdsActionStats' }
@@ -378,6 +389,7 @@ module FacebookAds
     field :marketing_messages_spend_currency, 'string'
     field :messages_delivered, 'string'
     field :messages_delivered_ctr, 'string'
+    field :mmp_credited_install, { list: 'AdsActionStats' }
     field :mobile_app_purchase_roas, { list: 'AdsActionStats' }
     field :msa_seller_budget, 'int'
     field :multi_event_conversion_attribution_setting, 'string'

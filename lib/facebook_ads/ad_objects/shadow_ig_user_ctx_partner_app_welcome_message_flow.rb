@@ -14,6 +14,12 @@ module FacebookAds
   # pull request for this class.
 
   class ShadowIgUserCtxPartnerAppWelcomeMessageFlow < AdObject
+    ELIGIBLE_PLATFORMS = [
+      "INSTAGRAM",
+      "MESSENGER",
+      "WHATSAPP",
+    ]
+
 
     field :compatible_platforms, { list: 'string' }
     field :eligible_platforms, { list: 'string' }

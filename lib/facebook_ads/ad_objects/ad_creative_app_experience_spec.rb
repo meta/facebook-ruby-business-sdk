@@ -15,6 +15,8 @@ module FacebookAds
 
   class AdCreativeAppExperienceSpec < AdObject
 
+    field :ad_extensions, 'object'
+    field :collection, 'object'
     field :details_to_ad_layout, 'object'
     field :reveal_details, 'object'
     field :show_spotlights, 'object'

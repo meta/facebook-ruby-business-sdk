@@ -38,6 +38,62 @@ module FacebookAds
       "vehicles",
     ]
 
+    CHECKOUT_COUNTRY = [
+      "AR",
+      "AT",
+      "AU",
+      "BE",
+      "BG",
+      "BR",
+      "CA",
+      "CH",
+      "CL",
+      "CO",
+      "CY",
+      "CZ",
+      "DE",
+      "DK",
+      "EC",
+      "EE",
+      "ES",
+      "FI",
+      "FR",
+      "GB",
+      "GR",
+      "HK",
+      "HR",
+      "HU",
+      "IE",
+      "IN",
+      "IT",
+      "JP",
+      "KR",
+      "LT",
+      "LU",
+      "LV",
+      "MT",
+      "MX",
+      "NL",
+      "NO",
+      "PE",
+      "PH",
+      "PK",
+      "PL",
+      "PR",
+      "PT",
+      "RO",
+      "SE",
+      "SG",
+      "SI",
+      "SK",
+      "TH",
+      "TR",
+      "TW",
+      "US",
+      "UY",
+      "VN",
+    ]
+
     ENABLED_COLLAB_TERMS = [
       "ENFORCE_CREATE_NEW_AD_ACCOUNT",
       "ENFORCE_SHARE_AD_PERFORMANCE_ACCESS",
@@ -175,7 +231,7 @@ module FacebookAds
     end
 
     has_edge :batch do |edge|
-      edge.post 'ProductCatalog' do |api|
+      edge.post 'ProductItem' do |api|
         api.has_param :allow_upsert, 'bool'
         api.has_param :fbe_external_business_id, 'string'
         api.has_param :requests, { list: 'hash' }
@@ -225,14 +281,6 @@ module FacebookAds
 
     has_edge :collaborative_ads_share_settings do |edge|
       edge.get 'CollaborativeAdsShareSettings'
-    end
-
-    has_edge :cpas_lsb_image_bank do |edge|
-      edge.post 'CpasLsbImageBank' do |api|
-        api.has_param :ad_group_id, 'int'
-        api.has_param :agency_business_id, 'int'
-        api.has_param :backup_image_urls, { list: 'string' }
-      end
     end
 
     has_edge :creator_asset_creatives do |edge|
@@ -399,44 +447,6 @@ module FacebookAds
       end
     end
 
-    has_edge :media_titles do |edge|
-      edge.post do |api|
-        api.has_param :additional_image_urls, { list: 'string' }
-        api.has_param :android_app_name, 'string'
-        api.has_param :android_class, 'string'
-        api.has_param :android_package, 'string'
-        api.has_param :android_url, 'string'
-        api.has_param :awards, { list: 'string' }
-        api.has_param :cast, { list: 'string' }
-        api.has_param :category, 'string'
-        api.has_param :currency, 'string'
-        api.has_param :description, 'string'
-        api.has_param :director, { list: 'string' }
-        api.has_param :fb_product_category, 'string'
-        api.has_param :genre, { list: 'string' }
-        api.has_param :image_url, 'string'
-        api.has_param :ios_app_name, 'string'
-        api.has_param :ios_app_store_id, 'int'
-        api.has_param :ios_url, 'string'
-        api.has_param :ipad_app_name, 'string'
-        api.has_param :ipad_app_store_id, 'int'
-        api.has_param :ipad_url, 'string'
-        api.has_param :iphone_app_name, 'string'
-        api.has_param :iphone_app_store_id, 'int'
-        api.has_param :iphone_url, 'string'
-        api.has_param :media_category, 'string'
-        api.has_param :name, 'string'
-        api.has_param :price, 'int'
-        api.has_param :rating, 'string'
-        api.has_param :release_date, 'string'
-        api.has_param :retailer_id, 'string'
-        api.has_param :url, 'string'
-        api.has_param :windows_phone_app_id, 'string'
-        api.has_param :windows_phone_app_name, 'string'
-        api.has_param :windows_phone_url, 'string'
-      end
-    end
-
     has_edge :pricing_variables_batch do |edge|
       edge.get 'ProductCatalogPricingVariablesBatch' do |api|
         api.has_param :handle, 'string'
@@ -454,6 +464,7 @@ module FacebookAds
     has_edge :product_feeds do |edge|
       edge.get 'ProductFeed'
       edge.post 'ProductFeed' do |api|
+        api.has_param :configuration_source_name, 'string'
         api.has_param :country, 'string'
         api.has_param :default_currency, 'string'
         api.has_param :deletion_enabled, 'bool'

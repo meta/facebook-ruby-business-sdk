@@ -242,6 +242,7 @@ module FacebookAds
         api.has_param :consider_views, 'bool'
         api.has_param :custom_events, { list: 'object' }
         api.has_param :custom_events_file, 'file'
+        api.has_param :custom_vendor_id, 'string'
         api.has_param :data_processing_options, { list: 'string' }
         api.has_param :data_processing_options_country, 'int'
         api.has_param :data_processing_options_state, 'int'
@@ -491,6 +492,7 @@ module FacebookAds
         api.has_param :attribution_referrer, 'string'
         api.has_param :auditing_token, 'string'
         api.has_param :click_attr_window, 'int'
+        api.has_param :click_id, 'string'
         api.has_param :custom_events, { list: 'object' }
         api.has_param :decline_reason, 'string'
         api.has_param :device_os, 'string'

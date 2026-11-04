@@ -54,6 +54,10 @@ module FacebookAds
       end
     end
 
+    has_edge :assigned_instagram_accounts do |edge|
+      edge.get 'IgUser'
+    end
+
     has_edge :assigned_pages do |edge|
       edge.get 'Page' do |api|
         api.has_param :pages, { list: 'int' }

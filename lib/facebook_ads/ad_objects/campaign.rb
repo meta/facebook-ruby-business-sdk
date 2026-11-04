@@ -413,6 +413,7 @@ module FacebookAds
     field :is_direct_send_campaign, 'bool'
     field :is_message_campaign, 'bool'
     field :is_meta_moment_maker_enabled, 'bool'
+    field :is_pca_unified, 'bool'
     field :is_reels_trending_ads_enabled, 'bool'
     field :is_skadnetwork_attribution, 'bool'
     field :issues_info, { list: 'AdCampaignIssuesInfo' }
@@ -514,6 +515,7 @@ module FacebookAds
         api.has_param :action_breakdowns, { list: { enum: -> { AdsInsights::ACTION_BREAKDOWNS }} }
         api.has_param :action_report_time, { enum: -> { AdsInsights::ACTION_REPORT_TIME }}
         api.has_param :breakdowns, { list: { enum: -> { AdsInsights::BREAKDOWNS }} }
+        api.has_param :cpas_only, 'string'
         api.has_param :date_preset, { enum: -> { AdsInsights::DATE_PRESET }}
         api.has_param :default_summary, 'bool'
         api.has_param :export_columns, { list: 'string' }
@@ -539,6 +541,7 @@ module FacebookAds
         api.has_param :action_breakdowns, { list: { enum: -> { AdsInsights::ACTION_BREAKDOWNS }} }
         api.has_param :action_report_time, { enum: -> { AdsInsights::ACTION_REPORT_TIME }}
         api.has_param :breakdowns, { list: { enum: -> { AdsInsights::BREAKDOWNS }} }
+        api.has_param :cpas_only, 'string'
         api.has_param :date_preset, { enum: -> { AdsInsights::DATE_PRESET }}
         api.has_param :default_summary, 'bool'
         api.has_param :export_columns, { list: 'string' }

@@ -18,8 +18,7 @@ module FacebookAds
     field :ad_group_id, 'string'
     field :catalog_segment_proxy_id, 'string'
     field :id, 'string'
-    field :agency_business_id, 'int'
-    field :backup_image_urls, { list: 'string' }
+    has_no_post
     has_no_delete
 
     has_edge :backup_images do |edge|

@@ -19,6 +19,7 @@ module FacebookAds
     field :descriptions, { list: 'object' }
     field :destinations, { list: 'object' }
     field :images, { list: 'object' }
+    field :playables, { list: 'object' }
     field :posts, { list: 'object' }
     field :push_metadata_ids, { list: 'string' }
     field :related_media, 'object'

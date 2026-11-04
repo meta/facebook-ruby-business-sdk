@@ -136,6 +136,7 @@ module FacebookAds
     field :reservation_status, 'int'
     field :start_time, 'datetime'
     field :status, 'int'
+    field :status_message, 'string'
     field :story_event_type, 'int'
     field :target_cpm, 'int'
     field :target_frequency, 'int'

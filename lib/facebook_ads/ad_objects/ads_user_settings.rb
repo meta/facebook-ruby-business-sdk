@@ -24,6 +24,7 @@ module FacebookAds
     field :ads_cs_dynamic_se_opt_out_timestamp, { list: 'hash' }
     field :ads_cs_sitelinks_opt_in_status, 'string'
     field :ads_cs_sitelinks_opt_out_timestamp, { list: 'hash' }
+    field :ads_cs_ugc_opt_out_timestamp, { list: 'hash' }
     field :ads_destination_optimization_opt_out_timestamp, { list: 'hash' }
     field :ads_tool_visits, { list: 'object' }
     field :aplusc_ai_agent_opt_in_status, 'string'
@@ -74,9 +75,11 @@ module FacebookAds
     field :image_text_translation_opt_in_status, 'string'
     field :is_ads_ai_consented, 'bool'
     field :is_cbo_default_on, 'bool'
+    field :is_negative_keywords_dismissed, 'bool'
     field :is_se_removal_guidance_dismissed, 'bool'
     field :last_used_post_format, 'string'
     field :last_visited_time, 'datetime'
+    field :maiba_r23_e2e_odax_default_mode, 'string'
     field :metadata_brand_kit_last_opt_out_timestamp, 'int'
     field :metadata_brand_kit_opt_in_status, 'string'
     field :multi_media_opt_out_status, 'string'
@@ -100,6 +103,9 @@ module FacebookAds
     field :sa_off_conv_loc_seen, 'string'
     field :saoff_published_l2_conv_loc_seen, 'string'
     field :saon_migr_l1_seen_status, 'string'
+    field :se_optout_survey_impr, 'int'
+    field :se_optout_survey_last_impr_ts, 'datetime'
+    field :se_optout_survey_resp_ts, 'datetime'
     field :selected_ad_account, 'AdAccount'
     field :selected_comparison_timerange, 'object'
     field :selected_metric_cic, 'string'
@@ -132,6 +138,7 @@ module FacebookAds
     field :video_to_image_opt_in_status, 'string'
     field :voiceover_trans_opt_in_status, 'string'
     field :website_media_opt_in_status, 'string'
+    field :website_media_opt_out_ts, 'datetime'
     field :website_reviews_data_opt_in_status, 'string'
     field :website_selling_points_data_opt_in_status, 'string'
     has_no_post

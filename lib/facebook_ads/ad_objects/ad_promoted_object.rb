@@ -135,6 +135,7 @@ module FacebookAds
     field :offline_conversion_data_set_id, 'string'
     field :offsite_conversion_event_id, 'string'
     field :omnichannel_object, 'object'
+    field :optimization_product_set_id, 'string'
     field :page_id, 'string'
     field :passback_application_id, 'string'
     field :passback_pixel_id, 'string'
