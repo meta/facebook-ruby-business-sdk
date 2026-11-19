@@ -79,8 +79,10 @@ module FacebookAds
 
     field :account_id, 'string'
     field :ad_active_time, 'string'
+    field :ad_review_feedback, 'object'
     field :ad_schedule_end_time, 'mixed'
     field :ad_schedule_start_time, 'mixed'
+    field :ad_studies, 'object'
     field :adcreatives, 'object'
     field :adlabels, { list: 'object' }
     field :adrules_governed, 'object'
@@ -96,6 +98,7 @@ module FacebookAds
     field :configured_status, 'string'
     field :conversion_domain, 'string'
     field :conversion_specs, { list: 'object' }
+    field :copies, 'object'
     field :created_time, 'mixed'
     field :creative, 'object'
     field :creative_asset_groups_spec, 'object'
@@ -111,15 +114,41 @@ module FacebookAds
     field :display_sequence, 'int'
     field :effective_status, 'string'
     field :engagement_audience, 'bool'
+    field :failed_delivery_checks, { list: 'object' }
     field :frequency, 'double'
     field :id, 'int'
     field :impressions, 'int'
+    field :insights, 'object'
     field :is_autobid, 'bool'
+    field :issues_info, { list: 'object' }
     field :last_updated_by_app_id, 'string'
+    field :leadgens, 'string'
+    field :leads, 'object'
     field :meta_reward_adgroup_status, 'string'
+    field :metadata, 'object'
+    field :mrl_settings, 'object'
+    field :name, 'string'
+    field :objective_for_cost, 'string'
+    field :objective_for_results, 'string'
+    field :preview_link, 'string'
+    field :preview_shareable_link, 'string'
+    field :previews, 'object'
+    field :priority, 'int'
+    field :recommendations, { list: 'object' }
+    field :related_media_user_opted_out, 'bool'
+    field :related_page_post_id, 'string'
+    field :result, 'string'
+    field :result_rate, 'string'
+    field :source_ad, 'object'
+    field :source_ad_id, 'string'
+    field :source_app_id, 'string'
     field :special_ad_categories, { list: 'string' }
     field :spent, 'string'
     field :status, 'string'
+    field :targeting, 'object'
+    field :targetingsentencelines, 'object'
+    field :tracking_and_conversion_with_defaults, 'object'
+    field :tracking_specs, { list: 'object' }
     field :updated_time, 'mixed'
     field :view_tags, { list: 'string' }
     field :yesterday_spent, 'string'

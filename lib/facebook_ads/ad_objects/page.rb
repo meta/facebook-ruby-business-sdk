@@ -962,6 +962,7 @@ module FacebookAds
     has_edge :leadgen_forms do |edge|
       edge.get 'LeadgenForm'
       edge.post 'LeadgenForm' do |api|
+        api.has_param :ad_account_id, 'int'
         api.has_param :allow_organic_lead_retrieval, 'bool'
         api.has_param :block_display_for_non_targeted_viewer, 'bool'
         api.has_param :context_card, 'object'
@@ -974,6 +975,7 @@ module FacebookAds
         api.has_param :is_phone_sms_verify_enabled, 'bool'
         api.has_param :locale, { enum: -> { LeadgenForm::LOCALE }}
         api.has_param :name, 'string'
+        api.has_param :phone_otp_verification_type, { enum: -> { LeadgenForm::PHONE_OTP_VERIFICATION_TYPE }}
         api.has_param :privacy_policy, 'object'
         api.has_param :question_page_custom_headline, 'string'
         api.has_param :questions, { list: 'object' }

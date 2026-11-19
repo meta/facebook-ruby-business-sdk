@@ -295,7 +295,6 @@ module FacebookAds
     field :live_video_ad_campaign_config, 'LiveVideoAdCampaignConfig'
     field :low_creative_reach, { list: 'string' }
     field :max_budget_spend_percentage, 'string'
-    field :meta_moment_maker_spec, 'MetaMomentMakerConfig'
     field :min_budget_spend_percentage, 'string'
     field :multi_event_conversion_attribution_window_seconds, 'int'
     field :multi_optimization_goal_weight, 'string'

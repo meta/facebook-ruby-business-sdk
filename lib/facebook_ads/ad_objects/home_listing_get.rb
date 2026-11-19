@@ -38,74 +38,36 @@ module FacebookAds
 
     CAPABILITIES = [
       "B2C_MARKETPLACE",
-      "BIZ_MSG_AI_AGENT",
-      "BUSINESS_INBOX_IN_MESSENGER",
-      "BUY_ON_FACEBOOK",
       "C2C_MARKETPLACE",
-      "CPAS_PARENT_CATALOG",
       "DA",
       "DAILY_DEALS",
       "DAILY_DEALS_LEGACY",
-      "EVENT",
-      "EVENT_DEPRECATED",
-      "GROUPS",
-      "IG_ONSITE_SHOPPING",
       "IG_PRODUCT_TAGGING",
-      "LDP",
       "MARKETPLACE",
       "MARKETPLACE_ADS_DEPRECATED",
-      "MARKETPLACE_HOME_RENTALS",
-      "MARKETPLACE_HOME_SALES",
-      "MARKETPLACE_MOTORS",
       "MARKETPLACE_SHOPS",
       "MINI_SHOPS",
-      "NEIGHBORHOODS",
       "OFFLINE_CONVERSIONS",
-      "ORGANIC_DISCOVERY",
-      "PROFILE",
-      "SERVICE",
       "SHOPS",
-      "TEST_CAPABILITY",
       "UNIVERSAL_CHECKOUT",
-      "US_MARKETPLACE",
       "WHATSAPP",
-      "WHATSAPP_MARKETING_MESSAGE",
     ]
 
     CAPABILITIES_RENDERING_CATALOG_MANAGER = [
       "B2C_MARKETPLACE",
-      "BIZ_MSG_AI_AGENT",
-      "BUSINESS_INBOX_IN_MESSENGER",
-      "BUY_ON_FACEBOOK",
       "C2C_MARKETPLACE",
-      "CPAS_PARENT_CATALOG",
       "DA",
       "DAILY_DEALS",
       "DAILY_DEALS_LEGACY",
-      "EVENT",
-      "EVENT_DEPRECATED",
-      "GROUPS",
-      "IG_ONSITE_SHOPPING",
       "IG_PRODUCT_TAGGING",
-      "LDP",
       "MARKETPLACE",
       "MARKETPLACE_ADS_DEPRECATED",
-      "MARKETPLACE_HOME_RENTALS",
-      "MARKETPLACE_HOME_SALES",
-      "MARKETPLACE_MOTORS",
       "MARKETPLACE_SHOPS",
       "MINI_SHOPS",
-      "NEIGHBORHOODS",
       "OFFLINE_CONVERSIONS",
-      "ORGANIC_DISCOVERY",
-      "PROFILE",
-      "SERVICE",
       "SHOPS",
-      "TEST_CAPABILITY",
       "UNIVERSAL_CHECKOUT",
-      "US_MARKETPLACE",
       "WHATSAPP",
-      "WHATSAPP_MARKETING_MESSAGE",
     ]
 
     FURNISH_TYPE = [
@@ -236,6 +198,8 @@ module FacebookAds
     field :custom_number_3, 'int'
     field :custom_number_4, 'int'
     field :days_on_market, 'int'
+    field :default_country, 'string'
+    field :default_language_locale, 'string'
     field :description, 'string'
     field :enabled_capability_to_review_status, { list: 'object' }
     field :energy_rating_eu, 'object'

@@ -146,6 +146,8 @@ module FacebookAds
       "product_group_content_id_breakdown",
       "product_id",
       "publisher_platform",
+      "purchased_brand",
+      "purchased_category",
       "redownload",
       "reels_trending_topic",
       "region",
@@ -275,7 +277,6 @@ module FacebookAds
     field :configurable_placement_ptc_converters, 'string'
     field :configurable_placement_ptc_reach, 'string'
     field :configurable_reachbyfrequency_action, { list: 'AdsActionStats' }
-    field :configurable_reachbyfrequency_converters_count, 'string'
     field :configurable_reachbyfrequency_impressions_cost, 'string'
     field :configurable_reachbyfrequency_impressions_count, 'string'
     field :configurable_reachbyfrequency_reach, 'string'

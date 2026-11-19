@@ -356,6 +356,7 @@ module FacebookAds
         api.has_param :regional_regulation_disclaimer_spec, 'hash'
         api.has_param :source_facebook_post_id, 'string'
         api.has_param :source_instagram_media_id, 'string'
+        api.has_param :source_threads_media_id, 'string'
         api.has_param :template_url, 'string'
         api.has_param :template_url_spec, 'string'
         api.has_param :thumbnail_url, 'string'
@@ -552,7 +553,6 @@ module FacebookAds
         api.has_param :line_number, 'int'
         api.has_param :live_video_ad_campaign_config, 'object'
         api.has_param :max_budget_spend_percentage, 'int'
-        api.has_param :meta_moment_maker_spec, 'hash'
         api.has_param :min_budget_spend_percentage, 'int'
         api.has_param :multi_event_conversion_attribution_window_seconds, 'int'
         api.has_param :multi_optimization_goal_weight, { enum: %w{BALANCED PREFER_EVENT PREFER_INSTALL UNDEFINED }}

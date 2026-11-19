@@ -24,11 +24,6 @@ module FacebookAds
       "STATUS_ON",
     ]
 
-    AI_DISCLOSURE = [
-      "AI_GENERATED",
-      "NOT_AI_GENERATED",
-    ]
-
     FILTERING = [
       "ema",
       "groups",
@@ -425,7 +420,7 @@ module FacebookAds
         api.has_param :broadcast_status, { list: { enum: -> { LiveVideo::BROADCAST_STATUS }} }
         api.has_param :source, { enum: -> { LiveVideo::SOURCE }}
       end
-      edge.post 'LiveVideo' do |api|
+      edge.post do |api|
         api.has_param :content_tags, { list: 'string' }
         api.has_param :description, 'string'
         api.has_param :enable_backup_ingest, 'bool'
@@ -437,14 +432,14 @@ module FacebookAds
         api.has_param :is_spherical, 'bool'
         api.has_param :original_fov, 'int'
         api.has_param :privacy, 'string'
-        api.has_param :projection, { enum: -> { LiveVideo::PROJECTION }}
+        api.has_param :projection, { enum: %w{CUBEMAP EQUIRECTANGULAR HALF_EQUIRECTANGULAR }}
         api.has_param :published, 'bool'
         api.has_param :schedule_custom_profile_image, 'file'
-        api.has_param :spatial_audio_format, { enum: -> { LiveVideo::SPATIAL_AUDIO_FORMAT }}
-        api.has_param :status, { enum: -> { LiveVideo::STATUS }}
-        api.has_param :stereoscopic_mode, { enum: -> { LiveVideo::STEREOSCOPIC_MODE }}
+        api.has_param :spatial_audio_format, { enum: %w{ambiX_4 }}
+        api.has_param :status, { enum: %w{LIVE_NOW SCHEDULED_CANCELED SCHEDULED_LIVE SCHEDULED_UNPUBLISHED UNPUBLISHED }}
+        api.has_param :stereoscopic_mode, { enum: %w{LEFT_RIGHT MONO MULTI_VIEW TOP_BOTTOM }}
         api.has_param :stop_on_delete_stream, 'bool'
-        api.has_param :stream_type, { enum: -> { LiveVideo::STREAM_TYPE }}
+        api.has_param :stream_type, { enum: %w{AMBIENT REGULAR }}
         api.has_param :title, 'string'
       end
     end
@@ -467,7 +462,6 @@ module FacebookAds
 
     has_edge :notifications do |edge|
       edge.post 'User' do |api|
-        api.has_param :ai_disclosure, { enum: -> { User::AI_DISCLOSURE }}
         api.has_param :bot_message_payload_elements, 'string'
         api.has_param :button_title, 'string'
         api.has_param :filtering, { list: { enum: -> { User::FILTERING }} }

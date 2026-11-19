@@ -230,15 +230,6 @@ module FacebookAds
       end
     end
 
-    has_edge :batch do |edge|
-      edge.post 'ProductItem' do |api|
-        api.has_param :allow_upsert, 'bool'
-        api.has_param :fbe_external_business_id, 'string'
-        api.has_param :requests, { list: 'hash' }
-        api.has_param :version, 'int'
-      end
-    end
-
     has_edge :catalog_store do |edge|
       edge.post 'StoreCatalogSettings' do |api|
         api.has_param :page, 'string'

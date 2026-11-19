@@ -58,38 +58,6 @@ module FacebookAds
       "WORK_TEAMWORK",
     ]
 
-    GROUP_TYPE = [
-      "CASUAL",
-      "COWORKERS",
-      "CUSTOM",
-      "FOR_SALE",
-      "FOR_WORK",
-      "GAME",
-      "HEALTH_SUPPORT",
-      "JOBS",
-      "LEARNING",
-      "NONE",
-      "PARENTING",
-      "STREAMER",
-      "WORK_AGENT_TO_AGENT",
-      "WORK_ANNOUNCEMENT",
-      "WORK_DEMO_GROUP",
-      "WORK_DISCUSSION",
-      "WORK_EPHEMERAL",
-      "WORK_FEEDBACK",
-      "WORK_FOR_SALE",
-      "WORK_GARDEN",
-      "WORK_INTEGRITY",
-      "WORK_LEARNING",
-      "WORK_MENTORSHIP",
-      "WORK_MULTI_COMPANY",
-      "WORK_RECRUITING",
-      "WORK_SOCIAL",
-      "WORK_STAGES",
-      "WORK_TEAM",
-      "WORK_TEAMWORK",
-    ]
-
 
     field :archived, 'bool'
     field :cover, 'CoverPhoto'
@@ -257,19 +225,6 @@ module FacebookAds
 
     has_edge :groups do |edge|
       edge.get 'Group'
-      edge.post 'Group' do |api|
-        api.has_param :admin, 'int'
-        api.has_param :description, 'string'
-        api.has_param :group_icon_id, 'string'
-        api.has_param :group_type, { enum: -> { Group::GROUP_TYPE }}
-        api.has_param :join_setting, { enum: -> { Group::JOIN_SETTING }}
-        api.has_param :name, 'string'
-        api.has_param :parent_id, 'string'
-        api.has_param :post_permissions, { enum: -> { Group::POST_PERMISSIONS }}
-        api.has_param :post_requires_admin_approval, 'bool'
-        api.has_param :privacy, 'string'
-        api.has_param :ref, 'string'
-      end
     end
 
     has_edge :live_videos do |edge|

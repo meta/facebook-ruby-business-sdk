@@ -15,7 +15,9 @@ module FacebookAds
 
   class LiveVideoAdCampaignConfig < AdObject
 
+    field :declared_live_seconds, 'int'
     field :id, 'string'
+    field :live_cadence, 'string'
     field :live_video_ad_type, 'string'
     has_no_post
     has_no_delete

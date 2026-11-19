@@ -43,7 +43,9 @@ module FacebookAds
       "total_comments",
       "total_interactions",
       "total_likes",
+      "total_viewers",
       "total_views",
+      "viewers",
       "views",
     ]
 

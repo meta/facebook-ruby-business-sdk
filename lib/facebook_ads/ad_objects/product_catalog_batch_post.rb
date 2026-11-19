@@ -13,10 +13,10 @@ module FacebookAds
   # on github and we'll fix in our codegen framework. We'll not be able to accept
   # pull request for this class.
 
-  class ProductCatalogPost < AdObject
+  class ProductCatalogBatchPost < AdObject
 
-    field :__firstoneof, 'object'
-    field :__secondoneof, 'object'
+    field :handles, { list: 'string' }
+    field :validation_status, { list: 'object' }
     has_no_id
     has_no_get
     has_no_post

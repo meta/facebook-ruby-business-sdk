@@ -13,15 +13,24 @@ module FacebookAds
   # on github and we'll fix in our codegen framework. We'll not be able to accept
   # pull request for this class.
 
-  class WorkSkill < AdObject
+  class BusinessClientProductCatalogs < AdObject
 
     field :id, 'string'
-    field :name, 'string'
+    has_no_get
     has_no_post
     has_no_delete
 
-    has_edge :users do |edge|
-      edge.get 'User'
+    has_edge :client_product_catalogs do |edge|
+      edge.get 'BusinessClientProductCatalogsGet' do |api|
+        api.has_param :after, 'string'
+        api.has_param :before, 'string'
+        api.has_param :date_format, 'string'
+        api.has_param :fields, 'string'
+        api.has_param :filtering, 'string'
+        api.has_param :limit, 'int'
+        api.has_param :sort, 'string'
+        api.has_param :summary, 'string'
+      end
     end
 
   end

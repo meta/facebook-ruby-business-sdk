@@ -56,6 +56,12 @@ module FacebookAds
       "ZH_TW",
     ]
 
+    PHONE_OTP_VERIFICATION_TYPE = [
+      "NOT_ENABLED",
+      "OTP_OPTIONAL",
+      "OTP_REQUIRED",
+    ]
+
 
     field :allow_organic_lead, 'bool'
     field :block_display_for_non_targeted_viewer, 'bool'
@@ -74,6 +80,7 @@ module FacebookAds
     field :organic_leads_count, 'int'
     field :page, 'Page'
     field :page_id, 'string'
+    field :phone_otp_verification_type, 'string'
     field :privacy_policy_url, 'string'
     field :question_page_custom_headline, 'string'
     field :questions, { list: 'LeadGenQuestion' }

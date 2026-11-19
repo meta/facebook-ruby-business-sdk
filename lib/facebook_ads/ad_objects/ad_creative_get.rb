@@ -260,6 +260,7 @@ module FacebookAds
     field :account_id, 'string'
     field :actor_id, 'int'
     field :actor_type, { enum: -> { ACTOR_TYPE }}
+    field :ad_disclaimer_spec, 'object'
     field :adlabels, { list: 'object' }
     field :applink_treatment, { enum: -> { APPLINK_TREATMENT }}
     field :asset_feed_spec, 'object'
@@ -298,6 +299,7 @@ module FacebookAds
     field :interactive_components_spec, 'object'
     field :link_og_id, 'int'
     field :link_url, 'string'
+    field :marketing_message_structured_spec, 'object'
     field :media_sourcing_spec, 'object'
     field :media_type, { enum: -> { MEDIA_TYPE }}
     field :name, 'string'
@@ -316,10 +318,12 @@ module FacebookAds
     field :playable_asset_id, 'int'
     field :portrait_customizations, 'object'
     field :product_set_id, 'int'
+    field :product_suggestion_settings, 'object'
     field :recommender_settings, 'object'
     field :regional_regulation_disclaimer_spec, 'object'
     field :source_facebook_post_id, 'int'
     field :source_instagram_media_id, 'int'
+    field :source_threads_media_id, 'int'
     field :status, 'string'
     field :template_url, 'string'
     field :template_url_spec, 'object'
@@ -333,6 +337,7 @@ module FacebookAds
     field :use_page_actor_override, 'bool'
     field :video_id, 'int'
     field :visual_hash, 'int'
+    field :wamo_whatsapp_identity_spec, 'object'
     has_no_get
     has_no_post
     has_no_delete

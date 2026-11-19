@@ -16,7 +16,6 @@ module FacebookAds
   class AdCampaignLearningStageInfo < AdObject
 
     field :attribution_windows, { list: 'string' }
-    field :cas_segment, 'string'
     field :conversions, 'int'
     field :current_budget_prediction, 'object'
     field :dynamic_lp_conversions_threshold, 'int'

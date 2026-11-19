@@ -345,6 +345,8 @@ module FacebookAds
       "EMPTY_BRAND",
       "EMPTY_CONDITION",
       "EMPTY_DESCRIPTION",
+      "EMPTY_GPC_AND_FPC",
+      "EMPTY_GTIN_AND_MPN",
       "EMPTY_IMAGE_URL",
       "EMPTY_PRICE",
       "EMPTY_PRODUCT_URL",
@@ -868,9 +870,6 @@ module FacebookAds
     field :visibility, { enum: -> { VISIBILITY }}
     field :wa_compliance_category, 'string'
     field :allow_upsert, 'bool'
-    field :fbe_external_business_id, 'string'
-    field :requests, { list: 'hash' }
-    field :version, 'int'
     field :android_app_name, 'string'
     field :android_class, 'string'
     field :android_package, 'string'

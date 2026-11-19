@@ -254,6 +254,7 @@ module FacebookAds
     field :regional_regulation_disclaimer_spec, 'AdCreativeRegionalRegulationDisclaimer'
     field :source_facebook_post_id, 'string'
     field :source_instagram_media_id, 'string'
+    field :source_threads_media_id, 'string'
     field :status, { enum: -> { STATUS }}
     field :template_url, 'string'
     field :template_url_spec, 'AdCreativeTemplateUrlSpec'

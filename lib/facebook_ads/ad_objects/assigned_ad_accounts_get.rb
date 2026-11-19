@@ -13,11 +13,12 @@ module FacebookAds
   # on github and we'll fix in our codegen framework. We'll not be able to accept
   # pull request for this class.
 
-  class ExternalMerchantSettings < AdObject
+  class AssignedAdAccountsGet < AdObject
 
-    field :connect_woo, 'string'
-    field :external_platform, 'string'
-    field :id, 'string'
+    field :data, { list: 'object' }
+    field :paging, 'object'
+    has_no_id
+    has_no_get
     has_no_post
     has_no_delete
 

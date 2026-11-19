@@ -54,6 +54,8 @@ module FacebookAds
       "EMPTY_BRAND",
       "EMPTY_CONDITION",
       "EMPTY_DESCRIPTION",
+      "EMPTY_GPC_AND_FPC",
+      "EMPTY_GTIN_AND_MPN",
       "EMPTY_IMAGE_URL",
       "EMPTY_PRICE",
       "EMPTY_PRODUCT_URL",
